@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<package>
+  <name>agent_model</name>
+  <version>0.1.0</version>
+  <description>agent_model</description>
+  <maintainer email="galileo@todo.todo">galileo</maintainer>
+  <license>Apache 2.0</license>
+  <buildtool_depend>catkin</buildtool_depend>
+</package>

@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<package>
+  <name>mrgs</name>
+  <version>0.1.0</version>
+  <description>mrgs</description>
+  <maintainer email="mahmoud.abdulgalil@gmail.com">Galileo</maintainer>
+  <license>Apache 2.0</license>
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>mrgs_alignment</run_depend>
+  <run_depend>mrgs_auxiliary_nodes</run_depend>
+  <run_depend>mrgs_complete_map</run_depend>
+  <run_depend>mrgs_data_interface</run_depend>
+  <run_depend>mrgs_scripts</run_depend>
+</package>

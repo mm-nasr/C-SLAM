@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<Workspace>
+    <WatchDirectories>
+        <Directory>src</Directory>
+    </WatchDirectories>
+    <IncludePaths>
+        <Directory>/usr/src/gtest</Directory>
+        <Directory>/usr/src/gtest/include</Directory>
+    </IncludePaths>
+</Workspace>

@@ -1,0 +1,5 @@
+<launch>
+    <param name="/use_sim_time" value="true" />
+    <include file="$(find gazebo_ros)/launch/willowgarage_world.launch"/>
+    <include file="$(find agent_model)/launch/multi-robots.launch"/>
+</launch>

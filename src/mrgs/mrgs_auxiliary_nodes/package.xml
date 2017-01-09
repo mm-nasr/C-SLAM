@@ -1,0 +1,26 @@
+<package>
+  <description>mrgs_auxiliary_nodes</description>
+  <name>mrgs_auxiliary_nodes</name>
+  <author>vsantos</author>
+  <maintainer email="mahmoud.abdulgalil@gmail.com">Mahmoud Abdul Galil </maintainer>
+  <version> 0.1.0 </version>
+  <license>BSD</license>
+  <url>http://ros.org/wiki/mrgs_auxiliary_nodes</url>
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>nav_msgs</build_depend>
+  <build_depend>wifi_comm</build_depend>
+  <build_depend>mrgs_complete_map</build_depend>
+  <build_depend>mrgs_data_interface</build_depend>
+  <build_depend>tf</build_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>nav_msgs</run_depend>
+  <run_depend>wifi_comm</run_depend>
+  <run_depend>mrgs_complete_map</run_depend>
+  <run_depend>mrgs_data_interface</run_depend>
+  <run_depend>tf</run_depend>
+</package>
+
+

@@ -1,0 +1,73 @@
+<launch>
+    <arg name="interface" default="$(optenv MRGS_INTERFACE)"/>
+    <arg name="init_pose"  default="0 0 0 0 0 0"/>
+
+    <node   name="spawn_minibot_model"
+	    pkg="gazebo_ros"
+	    type="spawn_model"
+            args="$(arg init_pose) -urdf -param  /robot_description -model ibot"
+	    respawn="false"
+	    output="screen">
+    </node>
+    <node   name="joint_state_publisher"
+	    pkg="joint_state_publisher"
+	    type="joint_state_publisher"
+            output="screen"/>
+    <node   name="robot_state_publisher"
+	    pkg="robot_state_publisher"
+	    type="robot_state_publisher"
+            output="screen"/>
+    <node   name="slam_gmapping"		pkg="gmapping"	    type="slam_gmapping">
+            <param name="base_frame"		value="/base_footprint" />
+            <param name="odom_frame"		value="/odometry_frame" />
+            <param name="map_frame"		value="/map" />
+            <remap from="scan"			to="/laser/scan" />
+	    <param name="map_update_interval"	value="2"/>
+	    <param name="maxUrange"		value="20.0"/>
+	    <param name="iterations"		value="5"/>
+	    <param name="linearUpdate"		value="0.1"/>
+	    <param name="angularUpdate"		value="0.1"/>
+	    <param name="temporalUpdate"	value="-1"/>
+	    <param name="particles"		value="300"/>
+	    <param name="xmin"			value="-50.0"/>
+	    <param name="ymin"			value="-50.0"/>
+	    <param name="xmax"			value="50.0"/>
+	    <param name="ymax"			value="50.0"/>
+	    <param name="minimumScore"		value="200.0"/>
+	    <param name="srr"			value="0.01"/>
+	    <param name="str"			value="0.01"/>
+	    <param name="srt"			value="0.02"/>
+	    <param name="stt"			value="0.02"/>
+            <param name="delta"			value="0.10"/>
+    </node>
+    <node   name="move_base"			pkg="move_base"	    type="move_base">
+	    <param name="base_global_planner"	type="string" value="global_planner/GlobalPlanner" />
+	    <param name="base_local_planner"	type="string" value="dwa_local_planner/DWAPlannerROS" />
+	    <param name="controller_frequency"	type="double" value="6.0" />
+	    <remap from="cmd_vel"		to="velocity_command"/>
+	    <rosparam file="$(find agent_model)/params/costmap_common_params.yaml"
+		      command="load" />
+	    <rosparam file="$(find agent_model)/params/local_costmap_params.yaml"
+		      command="load" />
+            <param name="local_costmap/global_frame"		value="/odometry_frame" />
+            <param name="local_costmap/robot_base_frame"	value="/base_footprint" />
+	    <rosparam file="$(find agent_model)/params/global_costmap_params.yaml"
+		      command="load" />
+            <param name="global_costmap/global_frame"		value="/map" />
+            <param name="global_costmap/robot_base_frame"	value="/base_footprint" />
+	    <rosparam file="$(find agent_model)/params/base_local_planner_params.yaml"
+		      command="load" />
+    </node>
+    <node   name="rviz"
+	    pkg="rviz"
+	    type="rviz"
+            args="-d $(find agent_model)/rviz-configs/config.rviz">
+	    <remap from="/move_base_simple/goal" to="move_base_simple/goal" />
+    </node>
+    <include file="$(find mrgs_scripts)/launch/common.launch">
+      <arg name="interface" value="$(arg interface)"/>
+      <arg name="is_centralized" value="false"/>
+      <arg name="launch_rviz" value="false"/>
+      <arg name="alt_mode" value="false"/>
+    </include>
+</launch>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+  <!-- The robot should be plugged in first, and then the laser. -->
+  <node pkg="mrl_robots_drivers" type="stingbot_node" name="stingbot_node" args="/dev/ttyACM1" output="screen" />
+
+  <node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" output="screen">
+    <param name="port" value="/dev/ttyACM1" />
+  </node>
+  
+  <node pkg="mrgs_scripts"  type="simple_exploration.py" name="simple_exploration"/>
+  
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser" args="0.09 0.0 0.05 0.0 0.0 0.0 1.0 /base_link /laser 100" />
+</launch>

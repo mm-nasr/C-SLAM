@@ -1,0 +1,6 @@
+<launch>
+    <param name="robot_description" textfile="$(find agent_model)/urdf/agent_model.urdf"/>
+	<include file="$(find agent_model)/launch/single-robot.launch" >
+	    <arg name="init_pose" value="-y 0 -x 0.5 -z 0" />
+	</include>
+</launch>

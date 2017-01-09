@@ -1,0 +1,24 @@
+<package>
+    <name> mrgs_complete_map </name>
+    <version>0.1.0</version>
+    <description>mrgs_complete_map</description>
+    <author>vsantos</author>
+    <maintainer email="mahmoud.abdulgalil@gmail.com">Mahmoud Abdul Galil</maintainer>
+    <license>BSD</license>
+    <url>http://ros.org/wiki/mrgs_complete_map</url>
+    <buildtool_depend>catkin</buildtool_depend>
+    <build_depend>roscpp</build_depend>
+    <build_depend>std_msgs</build_depend>
+    <build_depend>message_runtime</build_depend>
+    <build_depend>message_generation</build_depend>
+    <build_depend>mrgs_data_interface</build_depend>
+    <build_depend>mrgs_alignment</build_depend>
+    <run_depend>roscpp</run_depend>
+    <run_depend>std_msgs</run_depend>
+    <run_depend>message_generation</run_depend>
+    <run_depend>message_runtime</run_depend>
+    <run_depend>mrgs_data_interface</run_depend>
+    <run_depend>mrgs_alignment</run_depend>
+</package>
+
+
