@@ -1,0 +1,1 @@
+This serves as the source files for a multi-robot SLAM framework which was utilized in [Multi-robot SLAM: An Overview and Quantitative Evaluation of MRGS ROS Framework for MR-SLAM](https://link.springer.com/chapter/10.1007/978-3-319-78452-6_15)
